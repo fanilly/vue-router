@@ -1,6 +1,6 @@
 /*!
-  * vue-router v3.6.5
-  * (c) 2022 Evan You
+  * vue-router v1.0.0
+  * (c) 2023 Evan You
   * @license MIT
   */
 /*  */
@@ -3111,7 +3111,7 @@ function createHref (base, fullPath, mode) {
 
 // We cannot remove this as it would be a breaking change
 VueRouter.install = install;
-VueRouter.version = '3.6.5';
+VueRouter.version = '1.0.0';
 VueRouter.isNavigationFailure = isNavigationFailure;
 VueRouter.NavigationFailureType = NavigationFailureType;
 VueRouter.START_LOCATION = START;
@@ -3120,6 +3120,6 @@ if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
 }
 
-const version = '3.6.5';
+const version = '1.0.0';
 
 export { NavigationFailureType, Link as RouterLink, View as RouterView, START as START_LOCATION, VueRouter as default, isNavigationFailure, version };

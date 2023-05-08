@@ -251,6 +251,10 @@ export default class VueRouter {
     return this.matcher.getRoutes()
   }
 
+  removeRoute (name: string) {
+    this.matcher.removeRoute(name)
+  }
+
   addRoute (parentOrRoute: string | RouteConfig, route?: RouteConfig) {
     this.matcher.addRoute(parentOrRoute, route)
     if (this.history.current !== START) {

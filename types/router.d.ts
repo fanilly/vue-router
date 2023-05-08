@@ -183,6 +183,12 @@ export declare class VueRouter {
   getRoutes(): RouteRecordPublic[]
 
   /**
+   * remove route
+   * @param name route name
+   */
+  removeRoute(name: string): void
+
+  /**
    *
    * @param to Route location
    * @param current current is the current Route by default (most of the time you don't need to change this)

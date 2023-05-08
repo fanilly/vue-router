@@ -13,6 +13,7 @@ export type Matcher = {
   match: (raw: RawLocation, current?: Route, redirectedFrom?: Location) => Route;
   addRoutes: (routes: Array<RouteConfig>) => void;
   addRoute: (parentNameOrRoute: string | RouteConfig, route?: RouteConfig) => void;
+  removeRoute: (name: string) => void;
   getRoutes: () => Array<RouteRecord>;
 };
 
@@ -24,6 +25,16 @@ export function createMatcher (
 
   function addRoutes (routes) {
     createRouteMap(routes, pathList, pathMap, nameMap)
+  }
+
+  function removeRoute (name) {
+    if (nameMap[name]) {
+      const willRemovePath = nameMap[name].path
+      const willRemovePathIndex = pathList.findIndex(v => v === willRemovePath)
+      delete nameMap[name]
+      delete pathMap[willRemovePath]
+      if (willRemovePath !== -1) pathList.splice(willRemovePathIndex, 1)
+    }
   }
 
   function addRoute (parentOrRoute, route) {
@@ -193,7 +204,8 @@ export function createMatcher (
     match,
     addRoute,
     getRoutes,
-    addRoutes
+    addRoutes,
+    removeRoute
   }
 }
 
